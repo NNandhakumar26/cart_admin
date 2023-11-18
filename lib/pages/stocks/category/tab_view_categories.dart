@@ -1,15 +1,14 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';
 import 'package:get/get.dart';
-import 'package:toyskart_admin/core/constants/colors.dart';
+import 'package:toyskart_admin/global/widgets/badge.dart';
 import 'package:toyskart_admin/pages/stocks/category/category.dart';
 import 'package:toyskart_admin/pages/stocks/controller.dart';
 
 class StocksTabView1 extends StatefulWidget {
   const StocksTabView1({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<StocksTabView1> createState() => _StocksTabView1State();
@@ -41,52 +40,19 @@ class _StocksTabView1State extends State<StocksTabView1>
                 indicatorHeight: 0,
                 tabs: [
                   TabItem(
-                      color: Colors.green,
-                      title: Badge(
-                        padding: const EdgeInsets.all(8.0),
-                        badgeColor: ColorConst.primary,
-                        showBadge: _.newCount != 0,
-                        badgeContent: Text(
-                          _.newCount.toString(),
-                          style: const TextStyle(
-                              color: ColorConst.background, fontSize: 12),
-                        ),
-                        animationType: BadgeAnimationType.fade,
-                        position: BadgePosition.topEnd(
-                          top: -22,
-                        ),
-                        child: const Text(
-                          'Available',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: ColorConst.white,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      )),
+                    color: Colors.green,
+                    title: CustomTabbarBadge(
+                      showBadge: _.newCount != 0,
+                      titleText: 'Available',
+                      badgeText: _.newCount.toString(),
+                    ),
+                  ),
                   TabItem(
                     color: Colors.red,
-                    title: Badge(
-                      padding: const EdgeInsets.all(8.0),
-                      badgeColor: ColorConst.primary,
+                    title: CustomTabbarBadge(
                       showBadge: _.acceptedCount != 0,
-                      badgeContent: Text(
-                        _.acceptedCount.toString(),
-                        style: const TextStyle(
-                            color: ColorConst.background, fontSize: 12),
-                      ),
-                      animationType: BadgeAnimationType.fade,
-                      position: BadgePosition.topEnd(
-                        top: -22,
-                      ),
-                      child: const Text(
-                        'Out Of Stock',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorConst.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      titleText: 'Out Of Stock',
+                      badgeText: _.acceptedCount.toString(),
                     ),
                   ),
                 ],

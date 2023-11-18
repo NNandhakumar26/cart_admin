@@ -9,8 +9,7 @@ import '../../../core/constants/colors.dart';
 import 'controller.dart';
 
 class AllOrderList extends GetView<AllOrderListListController> {
-  const AllOrderList({Key? key, required this.type, required this.nextState})
-      : super(key: key);
+  const AllOrderList({super.key, required this.type, required this.nextState});
   final String type;
   final String nextState;
   @override

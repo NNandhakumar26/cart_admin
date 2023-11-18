@@ -9,7 +9,7 @@ import 'package:toyskart_admin/pages/admin_info/controller.dart';
 //import 'package:toyskart_admin/global/app_drawer.dart';
 
 class AdminInfo extends GetView<AdminInfoController> {
-  const AdminInfo({Key? key}) : super(key: key);
+  const AdminInfo({super.key});
 
   @override
   Widget build(BuildContext context) {

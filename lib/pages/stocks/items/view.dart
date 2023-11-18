@@ -14,7 +14,7 @@ import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
 class AddEditItem extends GetView<StocksListController> {
-  AddEditItem({Key? key, this.item}) : super(key: key);
+  AddEditItem({super.key, this.item});
   ItemList? item;
   Future<AssetEntity?> _pickFromCamera(BuildContext c) {
     return CameraPicker.pickFromCamera(c,
@@ -490,8 +490,8 @@ class AddEditItem extends GetView<StocksListController> {
                                 ),
                                 TextButton(
                                   onPressed: () {},
-                                  child: Wrap(
-                                    children: const [
+                                  child: const Wrap(
+                                    children: [
                                       Text(
                                         "Available now for order",
                                         style: TextStyle(

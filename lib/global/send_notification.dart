@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:toyskart_admin/core/utils/misc.dart';
 
 sendNotification(String title, String token) async {
   final data = {
@@ -29,11 +30,11 @@ sendNotification(String title, String token) async {
             }));
 
     if (response.statusCode == 200) {
-      print("Yeh notificatin is sended");
+      dPrint("Yeh notificatin is sended");
     } else {
-      print("Error");
+      dPrint("Error");
     }
   } catch (e) {
-    print(e);
+    dPrint(e);
   }
 }

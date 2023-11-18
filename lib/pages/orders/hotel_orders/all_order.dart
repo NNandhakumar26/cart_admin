@@ -1,7 +1,7 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:toyskart_admin/core/constants/colors.dart';
+import 'package:toyskart_admin/global/widgets/badge.dart';
 import 'package:toyskart_admin/global/widgets/botton_navigation/botton_navigation.dart';
 import 'package:toyskart_admin/pages/orders/hotel_orders/view.dart';
 
@@ -9,8 +9,8 @@ import 'controller.dart';
 
 class AllOrderTabView extends StatefulWidget {
   const AllOrderTabView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<AllOrderTabView> createState() => _AllOrderTabViewState();
@@ -59,98 +59,31 @@ class _AllOrderTabViewState extends State<AllOrderTabView>
                 // indicatorPadding: const EdgeInsets.symmetric(horizontal: 24),
                 tabs: [
                   Tab(
-                    child: Badge(
-                      padding: const EdgeInsets.all(8.0),
-                      badgeColor: ColorConst.primary,
+                    child: CustomTabbarBadge(
                       showBadge: _.newCount != 0,
-                      badgeContent: Text(
-                        _.newCount.toString(),
-                        style: const TextStyle(
-                            color: ColorConst.background, fontSize: 12),
-                      ),
-                      animationType: BadgeAnimationType.fade,
-                      position: BadgePosition.topEnd(
-                        top: -22,
-                      ),
-                      child: const Text(
-                        'New',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorConst.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      titleText: 'New',
+                      badgeText: _.newCount.toString(),
                     ),
                   ),
                   Tab(
-                    child: Badge(
-                      padding: const EdgeInsets.all(8.0),
-                      badgeColor: ColorConst.primary,
+                    child: CustomTabbarBadge(
                       showBadge: _.acceptedCount != 0,
-                      badgeContent: Text(
-                        _.acceptedCount.toString(),
-                        style: const TextStyle(
-                            color: ColorConst.background, fontSize: 12),
-                      ),
-                      animationType: BadgeAnimationType.fade,
-                      position: BadgePosition.topEnd(
-                        top: -22,
-                      ),
-                      child: const Text(
-                        'Accepted',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorConst.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      titleText: 'Accepted',
+                      badgeText: _.acceptedCount.toString(),
                     ),
                   ),
                   Tab(
-                      child: Badge(
-                    padding: const EdgeInsets.all(8.0),
-                    badgeColor: ColorConst.primary,
-                    showBadge: _.wayCount != 0,
-                    badgeContent: Text(
-                      _.wayCount.toString(),
-                      style: const TextStyle(
-                          color: ColorConst.background, fontSize: 12),
+                    child: CustomTabbarBadge(
+                      showBadge: _.wayCount != 0,
+                      titleText: 'Shipped',
+                      badgeText: _.wayCount.toString(),
                     ),
-                    animationType: BadgeAnimationType.fade,
-                    position: BadgePosition.topEnd(
-                      top: -22,
-                    ),
-                    child: const Text(
-                      'Shipped',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: ColorConst.white,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  )),
+                  ),
                   Tab(
-                    child: Badge(
-                      padding: const EdgeInsets.all(8.0),
-                      badgeColor: ColorConst.primary,
+                    child: CustomTabbarBadge(
                       showBadge: _.deliveredCount != 0,
-                      badgeContent: Text(
-                        _.deliveredCount.toString(),
-                        style: const TextStyle(
-                            color: ColorConst.background, fontSize: 14),
-                      ),
-                      animationType: BadgeAnimationType.fade,
-                      position: BadgePosition.topEnd(
-                        top: -22,
-                      ),
-                      child: const Text(
-                        'Deliverd',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorConst.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      titleText: 'Deliverd',
+                      badgeText: _.deliveredCount.toString(),
                     ),
                   ),
                 ],

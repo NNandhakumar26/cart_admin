@@ -5,7 +5,7 @@ import 'package:toyskart_admin/global/app_service.dart';
 class CategoryPickerViewBody extends StatelessWidget {
   final RxString query = ''.obs;
 
-  CategoryPickerViewBody({Key? key}) : super(key: key);
+  CategoryPickerViewBody({super.key});
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -25,7 +25,7 @@ class CategoryPickerViewBody extends StatelessWidget {
                 hintText: 'Search',
                 suffixIcon: Icon(Icons.search),
               ),
-              onChanged: query,
+              onChanged: query.call,
             ),
           ),
           Container(

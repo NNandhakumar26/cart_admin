@@ -7,7 +7,7 @@ import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
 class AddEditCategory extends GetView<StocksListController> {
-  const AddEditCategory({Key? key}) : super(key: key);
+  const AddEditCategory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -127,8 +127,8 @@ class AddEditCategory extends GetView<StocksListController> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Wrap(
-                        children: const [
+                      child: const Wrap(
+                        children: [
                           Text(
                             "Is Active?",
                             style: TextStyle(

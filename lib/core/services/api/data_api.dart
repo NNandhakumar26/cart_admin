@@ -46,7 +46,7 @@ class DataApiService<T> {
   /// headers
   Future<Map<String, String>> _getHeaders() async {
     _headers['Authorization'] = 'Bearer ${await app.idToken()}';
-    print(_headers);
+    dPrint(_headers);
     if (appJson) {
       _headers["Content-Type"] = "application/json";
     }

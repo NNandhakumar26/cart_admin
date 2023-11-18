@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:toyskart_admin/core/constants/colors.dart';
 import 'package:toyskart_admin/core/constants/routes.dart';
+import 'package:toyskart_admin/core/utils/misc.dart';
 import 'package:toyskart_admin/pages/profile_settings/view.dart';
 
 class BottomNavCustom extends StatefulWidget {
-  BottomNavCustom({Key? key, this.indexValue = 0}) : super(key: key);
+  BottomNavCustom({super.key, this.indexValue = 0});
   int indexValue;
   @override
   _BottomNavCustomState createState() => _BottomNavCustomState();
@@ -132,7 +133,7 @@ class _BottomNavCustomState extends State<BottomNavCustom> {
                 // });
 
                 Get.offNamed(RouteConst.stocks);
-                print('Index is 0');
+                dPrint('Index is 0');
                 return;
               } else if (itemIndex == 1) {
                 // await delay(100);
@@ -143,13 +144,9 @@ class _BottomNavCustomState extends State<BottomNavCustom> {
 
                 Get.offAllNamed(RouteConst.allOrder);
                 return;
-
-                print('Index is 1');
               } else if (itemIndex == 2) {
                 Get.offNamed(RouteConst.adminInfo);
                 return;
-
-                print('Index is 1');
               } else if (itemIndex == 3) {
                 Get.bottomSheet(const ProfileSettingsPage());
               }

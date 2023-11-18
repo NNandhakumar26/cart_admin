@@ -1,14 +1,14 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:toyskart_admin/core/constants/colors.dart';
 import 'package:toyskart_admin/core/constants/routes.dart';
 import 'package:toyskart_admin/core/utils/alerts.dart';
 import 'package:toyskart_admin/global/app_service.dart';
+import 'package:toyskart_admin/global/widgets/badge.dart';
 import 'package:unicons/unicons.dart';
 
 class AppCartButton extends StatelessWidget {
-  const AppCartButton({Key? key, this.onPressed}) : super(key: key);
+  const AppCartButton({super.key, this.onPressed});
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,9 @@ class AppCartButton extends StatelessWidget {
                   debugPrint('att');
                   Get.toNamed(RouteConst.checkout, arguments: []);
                 },
-                child: Badge(
-                  badgeContent: Text(
-                    "${AppService.to.globalCartCount}",
-                    style: const TextStyle(
-                        color: ColorConst.primary,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  padding: const EdgeInsets.all(6),
-                  badgeColor: ColorConst.white,
-                  child: const Icon(UniconsLine.shopping_bag,
-                      color: ColorConst.white),
+                child: CustomBadge(
+                  title: "${AppService.to.globalCartCount}",
+                  iconData: UniconsLine.shopping_bag,
                 ),
               )
             : FloatingActionButton(

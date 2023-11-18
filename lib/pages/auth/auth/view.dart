@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:toyskart_admin/core/constants/assets.dart';
 import 'package:toyskart_admin/core/utils/loader.dart';
+import 'package:toyskart_admin/core/utils/misc.dart';
 import 'package:toyskart_admin/pages/auth/auth/controller.dart';
 
 class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  const AuthPage({super.key});
 
   @override
   State<AuthPage> createState() => _AuthPageState();
@@ -76,7 +77,7 @@ class _AuthPageState extends State<AuthPage> {
                           showDropdownIcon: true,
                           //6 disableLengthCheck: true,
                           onChanged: (phone) {
-                            print(phone.completeNumber);
+                            dPrint(phone.completeNumber);
                             _.mobile.text = phone.completeNumber;
                             _.update();
                           },

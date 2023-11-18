@@ -1,9 +1,9 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 import 'package:toyskart_admin/core/constants/colors.dart';
+import 'package:toyskart_admin/global/widgets/badge.dart';
 import 'package:toyskart_admin/global/widgets/botton_navigation/botton_navigation.dart';
 //import 'package:toyskart_admin/global/app_drawer.dart';
 import 'package:toyskart_admin/pages/stocks/category/tab_view_categories.dart';
@@ -15,8 +15,8 @@ import 'controller.dart';
 
 class TabView extends StatefulWidget {
   const TabView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<TabView> createState() => _TabViewState();
@@ -130,52 +130,19 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
                         topRight: Radius.circular(4.0))),
                 tabs: [
                   TabItem(
-                      color: Colors.brown,
-                      title: Badge(
-                        padding: const EdgeInsets.all(8.0),
-                        badgeColor: ColorConst.primary,
-                        showBadge: _.newCount != 0,
-                        badgeContent: Text(
-                          _.newCount.toString(),
-                          style: const TextStyle(
-                              color: ColorConst.background, fontSize: 12),
-                        ),
-                        animationType: BadgeAnimationType.fade,
-                        position: BadgePosition.topEnd(
-                          top: -22,
-                        ),
-                        child: const Text(
-                          'Categories',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: ColorConst.white,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      )),
+                    color: Colors.brown,
+                    title: CustomTabbarBadge(
+                      showBadge: _.newCount != 0,
+                      titleText: 'Categories',
+                      badgeText: _.newCount.toString(),
+                    ),
+                  ),
                   TabItem(
                     color: Colors.orange,
-                    title: Badge(
-                      padding: const EdgeInsets.all(8.0),
-                      badgeColor: ColorConst.primary,
+                    title: CustomTabbarBadge(
                       showBadge: _.wayCount != 0,
-                      badgeContent: Text(
-                        _.wayCount.toString(),
-                        style: const TextStyle(
-                            color: ColorConst.background, fontSize: 12),
-                      ),
-                      animationType: BadgeAnimationType.fade,
-                      position: BadgePosition.topEnd(
-                        top: -22,
-                      ),
-                      child: const Text(
-                        'Items',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorConst.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                      titleText: 'Items',
+                      badgeText: _.wayCount.toString(),
                     ),
                   ),
                 ],

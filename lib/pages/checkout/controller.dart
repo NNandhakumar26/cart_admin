@@ -47,8 +47,8 @@ class CheckoutController extends GetxController {
     await getCartDetails();
     selectedItemList.clear();
     selectedItemList = AppService.to.globalCartList;
-    print(AppService.to.globalCartCount);
-    print(AppService.to.globalCartItems);
+    dPrint(AppService.to.globalCartCount);
+    dPrint(AppService.to.globalCartItems);
     for (var item in selectedItemList) {
       if (item.productPrice > 0) {
         total.value += item.itemCount * (item.productPrice);
@@ -114,7 +114,7 @@ class CheckoutController extends GetxController {
     try {
       // razorpay.open(options);
     } catch (e) {
-      print(e);
+      dPrint(e);
     }
   }
 
@@ -231,7 +231,7 @@ class CheckoutController extends GetxController {
     String password = 'dDlpROJAxuV6eZ4m0FWlBRXC';
     String basicAuth =
         'Basic ${base64.encode(utf8.encode('$username:$password'))}';
-    print(basicAuth);
+    dPrint(basicAuth);
 
     var r = await http.post(Uri.parse('https://api.razorpay.com/v1/orders'),
         headers: <String, String>{
@@ -242,8 +242,8 @@ class CheckoutController extends GetxController {
           "currency": "INR",
           "receipt": '${DateTime.now()}',
         });
-    print(r.statusCode);
-    print(r.body);
+    dPrint(r.statusCode);
+    dPrint(r.body);
     var res = jsonDecode(r.body);
     if (r.statusCode == 200) {
       return res["id"];
@@ -282,7 +282,7 @@ class CheckoutController extends GetxController {
           'deliveryCharge': deliveryCharge.toString()
         };
         //docData["items"] = jsonData;
-        print(params);
+        dPrint(params);
         var api = DataApiService<List>(
           ApiConst.orders,
           dataKey: "detail",
@@ -371,7 +371,7 @@ class CheckoutController extends GetxController {
       "paymentGateway": "${1}",
     };
     //docData["items"] = jsonData;
-    print(params);
+    dPrint(params);
     var api = DataApiService<List>(
       status ? "payment/success-payment" : "payment/failure-payment",
       //dataKey: "detail",

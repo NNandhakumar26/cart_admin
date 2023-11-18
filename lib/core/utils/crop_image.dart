@@ -9,8 +9,7 @@ import 'package:toyskart_admin/core/constants/colors.dart';
 import 'package:toyskart_admin/core/utils/loader.dart';
 
 class CropImage extends StatefulWidget {
-  const CropImage(this.bytes, {Key? key, this.circleOnly = false})
-      : super(key: key);
+  const CropImage(this.bytes, {super.key, this.circleOnly = false});
   final bool circleOnly;
   final Uint8List bytes;
   @override

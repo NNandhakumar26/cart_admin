@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:toyskart_admin/core/utils/misc.dart';
 import 'package:toyskart_admin/global/functions/user_model.dart';
 import 'package:toyskart_admin/pages/cart/model.dart';
 import 'package:toyskart_admin/pages/stocks/category/model.dart';
@@ -21,18 +22,20 @@ class AppService extends GetxService {
   RxInt globalCartCount = 0.obs;
   RxInt globalCartItems = 0.obs;
   FirebaseFirestore db = FirebaseFirestore.instance;
-  String _idToken = '';
+  String? _idToken = '';
 
   DateTime _idTokenExpiry = DateTime.now();
 
   Future<String> idToken() async {
-    if (_idToken.isEmpty || _idTokenExpiry.isBefore(DateTime.now())) {
+    if (_idToken != null ||
+        _idToken!.isEmpty ||
+        _idTokenExpiry.isBefore(DateTime.now())) {
       _idToken = await fireUser!.getIdToken(true);
-      print(_idToken);
+      dPrint(_idToken);
       _idTokenExpiry = DateTime.now().add(const Duration(seconds: 3600000));
     }
 
-    return _idToken;
+    return _idToken ?? '';
   }
 
   /// `redirectUri` holds url / page name to be redirected.

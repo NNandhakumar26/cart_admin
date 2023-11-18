@@ -18,7 +18,8 @@ Future<String> compressImage(String path, {int max = 1000}) async {
   if (result == null) {
     return path;
   }
-  if (result.lengthSync() > File(path).lengthSync()) {
+  int fileLength = await result.length();
+  if (fileLength > File(path).lengthSync()) {
     return path;
   }
   return result.path;

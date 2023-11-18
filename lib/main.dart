@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -11,9 +13,9 @@ import 'package:toyskart_admin/core/theme/app_theme.dart';
 import 'package:toyskart_admin/global/app_service.dart';
 
 Future<void> backroundHandler(RemoteMessage message) async {
-  print(" This is message from background");
-  print(message.notification!.title);
-  print(message.notification!.body);
+  log(" This is message from background");
+  log(message.notification!.title.toString());
+  log(message.notification!.body.toString());
 }
 
 void main() async {
@@ -33,7 +35,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

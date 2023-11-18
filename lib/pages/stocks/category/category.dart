@@ -11,9 +11,9 @@ import '../../../core/constants/colors.dart';
 
 class StocksList1 extends GetView<StocksListController> {
   const StocksList1({
-    Key? key,
+    super.key,
     required this.type,
-  }) : super(key: key);
+  });
   final String type;
   @override
   Widget build(BuildContext context) {
